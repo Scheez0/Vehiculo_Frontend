@@ -1,0 +1,7 @@
+{
+  "name": "Proyecto_Vehiculo_Front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

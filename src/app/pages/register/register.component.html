@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Registro </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="ion-padding">
+    <ion-card-header>
+      <ion-card-title>Nuevo Usuario</ion-card-title>
+    </ion-card-header>
+    <br>
+    <form [formGroup]="registerForm" (submit)="submitForm()">
+      <ion-input
+        label="Email"
+        type="email"
+        label-placement="floating"
+        fill="outline"
+        formControlName="email"
+        errorText="Email is required and must be valid"
+        placeholder="Ingrese Email"
+      ></ion-input>
+      <br>
+      <ion-input
+        label="Password"
+        type="password"
+        label-placement="floating"
+        fill="outline"
+        formControlName="password"
+        errorText="Password is required, must have at least 8 characters, and must contain at least one uppercase, one lowercase, one number, and one special character and match with the confirm password"
+        placeholder="Ingrese Password"
+      ></ion-input>
+      <br>
+      <ion-input
+        label="Repetir Password"
+        type="password"
+        label-placement="floating"
+        fill="outline"
+        formControlName="confirmPassword"
+        placeholder="Repita su Password"
+      ></ion-input>
+      <div *ngIf="registerForm.errors?.['passwordNotMatch']">
+        <ion-text color="danger"> Las contraseñas no coinciden</ion-text>
+
+      </div>
+      <br>
+      <ion-button 
+        type="submit"
+        [disabled]="!registerForm.valid" 
+        expand="block" 
+        >Registrar</ion-button>
+      <br>
+      <ion-button (click)="backToLogin()" expand="block">Volver</ion-button>
+    </form>
+  </ion-card>
+</ion-content>
